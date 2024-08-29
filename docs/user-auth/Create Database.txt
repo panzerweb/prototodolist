@@ -1,0 +1,20 @@
+
+
+1. Create Database (Pseudocode)
+	CREATE DB
+	CREATE Table for users_table
+		SET id as int to AUTO_INCREMENT and PRIMARY KEY
+		SET username, email, password to varchar
+		SET date_time to datetime
+
+
+code for manual database
+
+CREATE TABLE IF NOT EXISTS `users_table` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(50) NOT NULL,
+ `email` varchar(50) NOT NULL,
+ `password` varchar(50) NOT NULL,
+ `create_datetime` datetime NOT NULL,
+ PRIMARY KEY (`id`)
+);

@@ -1,0 +1,74 @@
+Version 1.0 of Prototodolist on its BETA Version
+August 29, 2024
+
+==For Associating User to the Tasks==
+
+START Php
+    SET include the directory of both auth_session.php and database.php
+    SET $username and GET $_SESSION["username]
+    SET query and GET user_id FROM table WHERE username = $username
+    SET result of mysqli_query on both connection and query or exit connection by mysqli_error
+    SET user to fetch an associative array mysqli method
+    SET user_id to the user['user_id'];
+
+    SET statement to prepare the connection and SELECT ALL FROM TASK WHERE user_id = ? ORDER BY task_id ASC
+    SET statement and BIND the parameter user_id as a string ("s") using bind_param
+        //This indicates that the parameter is a string, hence "s"
+        //-> is an arrow operator
+    EXECUTE the statement
+    SET result to statement -> get_result()
+END Php
+
+
+==For Presenting the current user's username on an HTML element
+
+<any html element>
+    START Php 
+        PRINT htmlspecialchars($_SESSION["username"])
+    END Php
+</any html element>
+
+
+
+==HTML element for adding of tasks==
+
+SET Form HTML element WITH POST method and ACTION from add_task.php
+SET input:text with name and id "task"
+SET button with name "add"
+
+
+
+==A Table HTML element for presenting the tasks==
+
+START table HTML element
+    SET table head with one table row and 4 table headers
+        -Task id
+        -Task Description
+        -Status if Pending or Done
+        -Action whether to Check or Delete
+    SET table body
+        START Php
+            SET count to 1
+            START WHILE LOOP iterating over $result and fetches the next row as an associative array using fetch_assoc() method and SET it to $fetch variable 
+            
+        END Php
+    SET table row
+        SET 3 table data 
+            START Php and ECHO the $count
+            START Php and ECHO the $fetch['task'] to print the task
+            START Php and echo the $fetch["status"] to print the status
+        SET 1 table data with colspan of 2 and class="action"
+            START Php
+                IF $fetch['status'] is not equal to "Done", THEN
+                    ECHO Anchor HTML with reference to update_task.php?task_id= $fetch["task_id]
+            END Php
+            SET Anchor HTML with reference to delete_task.php?task_id= <?php echo $fetch["task_id"] ?>
+        
+        START Php
+            END WHILE LOOP
+        END Php  
+
+    
+    
+
+

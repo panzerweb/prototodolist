@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: hsl(352, 83%, 29%);
+    --secondary: hsl(350, 72%, 52%);
+    --accent: hsl(345, 84%, 68%);
+    --accent-second: hsl(0, 0%, 7%);
+    --textual: hsl(0, 4%, 85%);
+}
+
+/* Registration.php */
+
+.registration-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--accent); /* use your color variable */
+    color: white;
+    text-align: center;
+}
+
+.registration-form h3 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--accent-second);
+}
+
+.registration-form .error-message {
+    color: var(--accent-second); /* Use your accent color */
+}
+
+.registration-form .success-message {
+    color: var(--accent-second); /* Use your secondary color */
+}
+
+.registration-form .link {
+    margin-top: 20px;
+}
+
+.registration-form .link a {
+    color: var(--primary); /* Use your secondary accent color */
+    text-decoration: none;
+}
+
+.registration-form .link a:hover {
+    text-decoration: underline;
+    color: var(--accent-second);
+}
+
+

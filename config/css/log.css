@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Colors */
+:root{
+    --primary: hsl(352, 83%, 29%);
+    --secondary: hsl(350, 72%, 52%);
+    --accent: hsl(345, 84%, 68%);
+    --accent-second: hsl(0, 0%, 7%);
+    --textual: hsl(0, 4%, 85%);
+}
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    /* Background */
+    background-image: url("../img/login.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Other styles */
+    color: var(--accent-second);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Section Styling */
+.login-section {
+    padding: 40px;
+    background: hsla(0, 44%, 23%, 0.678);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4.5px )
+    ;-webkit-backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 50%;
+}
+
+/* Form Wrapper */
+.form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Form Title */
+.form-title {
+    font-size: 3.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--textual);
+    text-align: center;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Form Labels */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--accent-second);
+}
+
+/* Form Inputs */
+.login-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.login-input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit Button */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: var(--secondary);
+}
+
+/* Form Footer */
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--textual);
+}
+
+.form-footer .link {
+    font-size: 0.9rem;
+    color: var(--textual);
+}
+
+.form-footer .link a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-footer .link a:hover {
+    color: var(--accent-second);
+    text-decoration: underline;
+}

@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+:root{
+    --primary: hsl(352, 83%, 29%);
+    --secondary: hsl(350, 72%, 52%);
+    --accent: hsl(345, 84%, 68%);
+    --accent-second: hsl(0, 0%, 7%);
+}
+/* Navbar Styling */
+.navbar{
+    background: var(--primary);
+}
+.navbar .navbar-text{
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+/* Container Styling */
+
+.container{
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .input-area{
+    width: 50%;
+}
+.container .input-area form{
+    display: flex;
+    width: 100%;
+}
+
+.container .input-area form input[type="text"]{
+    width: 100%;
+}
+.container .input-area form button{
+    margin: 0 0.5rem;
+    width: 10%;
+    background: var(--secondary);
+    padding: 0.5rem;
+    transition: all 0.1s linear;
+}
+.container .input-area form button:hover{
+    background: transparent;
+    outline: 1px solid var(--secondary);
+}
+.container .input-area form button svg{
+    color: var(--primary);
+}
+
+/* Table Stylings */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+    table-layout: fixed;
+}
+
+.table thead th {
+    background-color: var(--primary);
+    color: white;
+    text-align: left;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.table tbody td {
+    padding: 10px;
+    word-wrap: break-word;
+    white-space: normal;
+    border-bottom: 1px solid var(--accent);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: var(--accent-second);
+    color: white;
+}
+
+.btn-completed, .btn-remove {
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.btn-completed {
+    color: var(--secondary);
+}
+
+.btn-remove {
+    color: var(--accent);
+}
+
+.action {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--accent-second);
+}

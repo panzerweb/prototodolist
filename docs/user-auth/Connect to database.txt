@@ -1,0 +1,4 @@
+2.Connect to the database
+	CREATE database.php
+		SET connection to database localhost, username, password, and database name using mysqli_connect()
+		CHECK if database connection have an error

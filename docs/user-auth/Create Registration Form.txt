@@ -1,0 +1,42 @@
+4. Create Registration Form
+	CREATE registration.php
+	SET HTML DOCUMENT
+	INIT php inside html body
+		REQUIRE from database.php
+		IF $POST["submit"] is set THEN
+			IF the POST["username"] or email or password is empty, THEN
+				echo HTML that says error
+			ELSE, THEN
+				SET username and remove backlash on the REQUEST[username]
+				SET username and Escape special characters on connection and username
+				SET email and remove backlash on REQUEST
+				SET email and Escape special characters on connection and email
+				SET password and remove backlash on REQUEST
+				SET password and Escape special characters on connection and password
+				SET date_time to date method (Y-m-d H:i:s)
+				SET query
+					INSERT into database table of users_table (username, email, password, datetime) 
+					with VALUES(username, "" . md5(password) . "", email, datetime);
+				INIT result and SET mysqli_query to the connection and query
+				
+					IF result THEN
+						echo 
+							HTML Div with class 'form' and print Successful Registration
+							link to login.php
+					ELSE, THEN
+						echo
+							HTML Div with class 'form' and print Fields are Missing
+							link to registration.php
+		ELSE, THEN start of ELSE
+		EXIT php tag
+			SET HTML Form, POST METHOD
+			INIT heading title
+			INIT 3 Input with login-input class, for username and email
+			INIT password input with same class
+			INIT submit with login-button as Register
+			INIT link to login.php (like a button)
+		START php 
+			END ELSE
+		EXIT php
+
+					

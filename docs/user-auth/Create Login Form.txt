@@ -1,0 +1,32 @@
+5. Create Login Form
+	CREATE login.php
+	SET HTML DOCUMENT
+	REQUIRE from database.php
+	START SESSION
+		IF POST[username] is set THEN
+			SET username and password and remove backlashes from REQUEST
+			SET username and password and Escape Characters on connection and username
+			
+			SET query and SELECT FROM database table WHERE username = username and password = md5(password)
+			SET result to mysqli_query on connection and query or die(mysql_error)
+			SET rows = mysqli_num_rows on result
+			
+			IF rows is equal to 1 THEN
+				SET username is assigned to SESSION[username]
+				SET or Redirect header() to dashboard.php location
+			ELSE, THEN
+				echo 
+					HTML Div with 'form' class and print Incorrect Username and Password
+					SET link to login.php
+		ELSE, THEN start of ELSE
+		EXIT php tag
+			SET HTML Form, POST METHOD
+			INIT heading title
+			INIT Input with login-input class, for username
+			INIT password input with same class
+			INIT submit with login-button as Login
+			INIT link to registration.php (like a button)
+		START php 
+			END ELSE
+		EXIT php
+				

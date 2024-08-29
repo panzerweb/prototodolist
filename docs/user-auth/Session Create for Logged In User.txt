@@ -1,0 +1,6 @@
+3. Session Create for logged in user
+	CREATE auth_session.php
+		SET session_start()
+		IF $_SESSION ["username"] is not set THEN
+		SEND header function to login.php location
+		EXIT Function
