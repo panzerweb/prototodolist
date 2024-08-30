@@ -34,7 +34,7 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-light">
+    <!-- <nav class="navbar navbar-light">
         <div class="container-lg">
             <span class="navbar-text">
                 Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
@@ -46,9 +46,58 @@ $result = $stmt->get_result();
                 </svg>
             </a>
         </div>
+    </nav> -->
+    <nav class="navbar navbar-dark">
+        <div class="container-lg">
+            <span class="navbar-text">
+                Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+            </span>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                
+            </span>
+            </button>
+
+            <!-- Offcanvas -->
+
+            <div class="sidebar offcanvas offcanvas-end" tabindex="-1"  id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <span class="navbar-text">
+                    Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+                </span>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav align-items-center justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="profile_settings.php">
+                            Profile Settings
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Priorities
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">High</a></li>
+                            <li><a class="dropdown-item" href="#">Medium</a></li>
+                            <li><a class="dropdown-item" href="#">Low</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logout" href="./config/logout.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                                <path d="M7.5 1v7h1V1z"/>
+                                <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>
     </nav>
-
-
 
     <!-- Container for Main Section -->
     <div class="container">
