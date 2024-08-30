@@ -1,4 +1,5 @@
 <?php
+    
     require_once "./config/database.php";
 
     if(isset($_GET['task_id'])){
@@ -8,4 +9,5 @@
 
         header("location: dashboard.php");
     }
+    
 ?>
