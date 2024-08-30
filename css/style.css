@@ -12,11 +12,16 @@
 }
 /* Navbar Styling */
 .navbar{
-    background: var(--primary);
+    background: var(--accent-second);
 }
 .navbar .navbar-text{
     color: var(--accent);
     font-size: 1.5rem;
+}
+
+.offcanvas {
+    background-color: var(--primary); /* Replace with your desired color */
+    color: #fff; /* Optional: Set text color to ensure readability */
 }
 
 /* Container Styling */

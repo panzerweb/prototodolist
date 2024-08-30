@@ -47,6 +47,10 @@ $result = $stmt->get_result();
             </a>
         </div>
     </nav>
+
+
+
+    <!-- Container for Main Section -->
     <div class="container">
 
         <!-- ==================================================================================== -->
