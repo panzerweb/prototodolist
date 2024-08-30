@@ -151,7 +151,26 @@ $result = $stmt->get_result();
                             <a href="delete_task.php?task_id=<?php echo $fetch['task_id'] ?>"
                                     class="btn-remove">❌
                             </a>
+
+                            <?php
+                                // Check the current priority and display only the relevant button
+                                if ($fetch['priority'] == "high") {
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=none" class="btn-prio-high">🔴</a>';
+                                } elseif ($fetch['priority'] == "medium") {
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=none" class="btn-prio-medium">🟠</a>';
+                                } elseif ($fetch['priority'] == "low") {
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=none" class="btn-prio-low">🟢</a>';
+                                } else {
+                                    // Show all priority options if no priority is set
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=high" class="btn-prio-high">🔴</a>';
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=medium" class="btn-prio-medium">🟠</a>';
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=low" class="btn-prio-low">🟢</a>';
+                                }
+                                
+                            ?>
+
                     </td>
+
                 </tr>
                 <?php
                     }

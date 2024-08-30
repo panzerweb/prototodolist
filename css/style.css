@@ -131,3 +131,8 @@
 .border-bottom {
     border-bottom: 1px solid var(--accent-second);
 }
+
+
+.btn-prio-high, .btn-prio-medium, .btn-prio-low{
+    text-decoration: none !important;
+}
