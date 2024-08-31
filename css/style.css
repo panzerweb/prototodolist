@@ -17,15 +17,18 @@
 }
 
 :root{
-    --primary: hsl(352, 83%, 29%);
+    --primary: hsl(352, 82%, 29%);
     --secondary: hsl(350, 72%, 52%);
+    --tertiary: hsl(352, 82%, 22%);
     --accent: hsl(345, 84%, 68%);
     --accent-second: hsl(0, 0%, 7%);
     --textual: hsl(0, 4%, 85%);
+    --textual-gray: hsl(0, 2%, 45%);
 }
 
 body{
-    background: var(--accent-second);
+    height: 100vh;
+    background: linear-gradient(283deg, rgba(135,13,29,1) 0%, rgba(18,18,18,1) 25%, rgba(18,18,18,1) 75%, rgba(90,7,18,1) 100%);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -33,10 +36,14 @@ body{
 .navbar{
     background-color: var(--primary);
     color: #f9f9f9 !important;
+    font-family: 'Bebas Neue';
+    letter-spacing: 2px;
 }
 .navbar .navbar-text{
     color: var(--accent);
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-family: 'Bebas Neue';
+    letter-spacing: 2px;
 }
 
 .offcanvas {

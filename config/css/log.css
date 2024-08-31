@@ -6,17 +6,19 @@
 
 /* Root Colors */
 :root{
-    --primary: hsl(352, 83%, 29%);
+    --primary: hsl(352, 82%, 29%);
     --secondary: hsl(350, 72%, 52%);
+    --tertiary: hsl(352, 82%, 22%);
     --accent: hsl(345, 84%, 68%);
     --accent-second: hsl(0, 0%, 7%);
     --textual: hsl(0, 4%, 85%);
+    --textual-gray: hsl(0, 2%, 45%);
 }
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     /* Background */
-    background-image: url("../img/login.jpg");
+    background: linear-gradient(283deg, rgba(135,13,29,1) 0%, rgba(18,18,18,1) 25%, rgba(18,18,18,1) 75%, rgba(90,7,18,1) 100%);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -65,7 +67,7 @@ body {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
-    color: var(--accent-second);
+    color: var(--textual);
 }
 
 /* Form Inputs */
@@ -91,7 +93,7 @@ body {
     background-color: var(--primary);
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;

@@ -1,3 +1,4 @@
+
 // Get the buttons by their IDs
 const signInBtn = document.getElementById('signInBtn');
 const signUpBtn = document.getElementById('signUpBtn');
@@ -15,3 +16,18 @@ signUpBtn.addEventListener('click', function() {
     // Redirect to registration.php
     window.location.href = './config/registration.php';
 });
+
+
+// HTML Dialog Modal Function Show
+const closeBtn = document.getElementById("close-modal-btn");
+
+document.addEventListener('DOMContentLoaded', function(){
+    let dialog = document.getElementById("dialog");
+    setTimeout(() => {
+        dialog.showModal(); 
+    }, 300);
+})
+
+closeBtn.addEventListener("click", function(){
+    dialog.close();
+})

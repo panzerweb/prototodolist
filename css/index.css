@@ -17,26 +17,31 @@
 }
 
 :root{
-    --primary: hsl(352, 83%, 29%);
+    --primary: hsl(352, 82%, 29%);
     --secondary: hsl(350, 72%, 52%);
+    --tertiary: hsl(352, 82%, 22%);
     --accent: hsl(345, 84%, 68%);
     --accent-second: hsl(0, 0%, 7%);
     --textual: hsl(0, 4%, 85%);
+    --textual-gray: hsl(0, 2%, 45%);
 }
 
 body{
-    background: var(--accent-second);
+    height: 100vh;
+    background: linear-gradient(283deg, rgba(135,13,29,1) 0%, rgba(18,18,18,1) 25%, rgba(18,18,18,1) 75%, rgba(90,7,18,1) 100%);
     font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Navbar Styling */
 .navbar{
     background: var(--primary);
+    font-family: 'Bebas Neue';
 }
 
 .navbar .sign-in{
     border: 1px solid var(--textual) !important;
     color: var(--textual);
+    letter-spacing: 2px;
 }
 .navbar .sign-in:hover{
     border: 1px solid var(--secondary) !important;
@@ -45,6 +50,7 @@ body{
 }
 .navbar .sign-up{
     background-color: var(--textual);
+    letter-spacing: 2px;
 }
 .navbar .sign-up:hover{
     background-color: var(--secondary);
@@ -57,4 +63,70 @@ body{
 
 .navbar-toggler-icon {
     background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba(255, 255, 255, 1)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+
+/* Home Section */
+#home-section{
+    padding-top: 6rem;
+}
+#home-section h1{
+    font-size: calc(1.525rem + 3.3vw);
+    color: var(--textual);
+}
+#home-section p{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--textual-gray);
+}
+#home-section .btn{
+    width: 50%;
+    margin: 0 auto;
+    background-color: var(--primary);
+    color: var(--textual);
+}
+#home-section .btn:hover{
+    background-color: var(--tertiary);
+}
+#home-section span{
+    color: var(--textual-gray);
+}
+#home-section span strong{
+    color: var(--textual);
+}
+
+/* Modal or Dialog Styling */
+#dialog{
+    padding: 1.5rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: var(--tertiary);
+    border-radius: 20px;
+}
+#dialog::backdrop{
+    background-color: var(--accent-second);
+    opacity: .6;
+}
+
+#dialog h1{
+    color: var(--textual);
+    font-family: 'Bebas Neue';
+    letter-spacing: 3px;
+}
+#dialog span{
+    color: var(--textual-gray);
+}
+#dialog p{
+    color: var(--textual);
+}
+#dialog ol{
+    color: var(--textual);
+}
+
+#close-modal-btn svg{
+    color: var(--accent);
 }
