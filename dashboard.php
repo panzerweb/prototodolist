@@ -102,7 +102,7 @@ $result = $stmt->get_result();
 
     <!-- Container for Main Section -->
     <div class="container">
-
+        <h1>PROTOTODOLIST</h1>
         <!-- ==================================================================================== -->
         <!-- REFERENCE: https://www.geeksforgeeks.org/how-to-make-a-todo-app-using-php-mysql/ -->
          <!-- ==================================================================================== -->
@@ -120,7 +120,7 @@ $result = $stmt->get_result();
         <table class="table">
             <thead>
                 <tr>
-                    <th>Task Id</th>
+                    <th>Task No.</th>
                     <th>Task</th>
                     <th>Status</th>
                     <th>Action</th>

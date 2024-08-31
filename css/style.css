@@ -1,3 +1,15 @@
+
+/* Google Web Font Helper */
+/* bebas-neue-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/bebas-neue-v14-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+
 *{
     margin: 0;
     padding: 0;
@@ -9,10 +21,18 @@
     --secondary: hsl(350, 72%, 52%);
     --accent: hsl(345, 84%, 68%);
     --accent-second: hsl(0, 0%, 7%);
+    --textual: hsl(0, 4%, 85%);
 }
+
+body{
+    background: var(--accent-second);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* Navbar Styling */
 .navbar{
     background-color: var(--primary);
+    color: #f9f9f9 !important;
 }
 .navbar .navbar-text{
     color: var(--accent);
@@ -24,12 +44,17 @@
     background-color: var(--primary); /* Replace with your desired color */
 }
 
+.offcanvas-body{
+    background-color: var(--accent-second);
+}
+
 .dropdown-menu{
-    background-color: var(--secondary);
+    background-color: var(--accent);
     transition: all 0.2s linear;
 }
 .dropdown-menu li a:hover{
-    background-color: var(--accent);
+    background-color: var(--accent-second);
+    color: #f9f9f9;
 }
 
 .logout{
@@ -48,16 +73,27 @@
     align-items: center;
 }
 
+.container h1{
+    color: var(--primary);
+    font-size: 6.61rem;
+    margin-top: 0.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    font-family: 'Bebas Neue';
+}
+
 .container .input-area{
     width: 50%;
 }
 .container .input-area form{
     display: flex;
     width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 .container .input-area form input[type="text"]{
     width: 100%;
+    padding: 0.5rem;
 }
 .container .input-area form button{
     margin: 0 0.5rem;
@@ -68,10 +104,13 @@
 }
 .container .input-area form button:hover{
     background: transparent;
-    outline: 1px solid var(--secondary);
+    outline: 1px solid var(--accent);
 }
 .container .input-area form button svg{
     color: var(--primary);
+}
+.container .input-area form button:hover svg{
+    color: var(--secondary);
 }
 
 /* Table Stylings */
@@ -81,6 +120,7 @@
     font-family: Arial, sans-serif;
     margin: 20px 0;
     table-layout: fixed;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 .table thead th {
