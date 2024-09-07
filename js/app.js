@@ -31,3 +31,4 @@ document.addEventListener('DOMContentLoaded', function(){
 closeBtn.addEventListener("click", function(){
     dialog.close();
 })
+

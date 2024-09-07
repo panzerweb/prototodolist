@@ -1,24 +1,18 @@
 <?php
+    //include the php file to start session
+    include("./start_session.php");
 
-// Start session and include necessary files
-include(__DIR__ . "/config/auth_session.php");
-include(__DIR__ . "/config/database.php");
+    // Retrieve the user_id from the users_table based on the username
+    $query = "SELECT user_id FROM users_table WHERE username = '$username'";
+    $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+    $user = mysqli_fetch_assoc($result);
+    $user_id = $user['user_id'];
 
-// Retrieve the user_id from the session
-$username = $_SESSION["username"];
-
-// Retrieve the user_id from the users_table based on the username
-$query = "SELECT user_id FROM users_table WHERE username = '$username'";
-$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-$user = mysqli_fetch_assoc($result);
-$user_id = $user['user_id'];
-
-// Prepare the query to retrieve tasks for the current user
-$stmt = $connection->prepare("SELECT * FROM task WHERE user_id = ? ORDER BY task_id ASC");
-$stmt->bind_param("s", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
+    // Prepare the query to retrieve tasks for the current user
+    $stmt = $connection->prepare("SELECT * FROM task WHERE user_id = ? ORDER BY task_id ASC");
+    $stmt->bind_param("s", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result(); 
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +20,8 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard -- ToDoList</title>
-    
+    <title>Dashboard -- PROTOTODOLIST</title>
+    <link rel="shortcut icon" href="./img/logo3.png" type="image/x-icon">
     <!-- Bootstrap and CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -35,24 +29,14 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <!-- <nav class="navbar navbar-light">
-        <div class="container-lg">
-            <span class="navbar-text">
-                Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
-            </span>
-            <a href="./config/logout.php" class="btn btn-danger">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
-                <path d="M7.5 1v7h1V1z"/>
-                <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/>
-                </svg>
-            </a>
-        </div>
-    </nav> -->
+    <!-- Navigational Bar -->
     <nav class="navbar navbar-dark">
         <div class="container-lg">
-            <span class="navbar-text">
-                Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
-            </span>
+            <a href="./dashboard.php" style="text-decoration: none;">
+                <span class="navbar-text">
+                    Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+                </span>
+            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -64,9 +48,11 @@ $result = $stmt->get_result();
 
             <div class="sidebar offcanvas offcanvas-end" tabindex="-1"  id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <span class="navbar-text">
-                    Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
-                </span>
+                <a href="./dashboard.php" style="text-decoration: none;">
+                    <span class="navbar-text">
+                        Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+                    </span>
+                </a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -77,13 +63,13 @@ $result = $stmt->get_result();
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Priorities
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">High</a></li>
-                            <li><a class="dropdown-item" href="#">Medium</a></li>
-                            <li><a class="dropdown-item" href="#">Low</a></li>
+                            <li><a class="dropdown-item" href="./categories/high_priority.php">High</a></li>
+                            <li><a class="dropdown-item" href="./categories/medium_priority.php">Medium</a></li>
+                            <li><a class="dropdown-item" href="./categories/low_priority.php">Low</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -99,7 +85,6 @@ $result = $stmt->get_result();
             </div>
         </div>
     </nav>
-
     <!-- Container for Main Section -->
     <div class="container">
         <h1>PROTOTODOLIST</h1>
@@ -163,12 +148,12 @@ $result = $stmt->get_result();
                             <?php
                                 // Check the current priority and display only the relevant button
                                 if ($fetch['priority'] == "high") {
-                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=none" class="btn-prio-high">🔴</a>';
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=high" class="btn-prio-high">🔴</a>';
                                 } elseif ($fetch['priority'] == "medium") {
-                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=none" class="btn-prio-medium">🟠</a>';
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=medium" class="btn-prio-medium">🟠</a>';
                                 } elseif ($fetch['priority'] == "low") {
-                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=none" class="btn-prio-low">🟢</a>';
-                                } else {
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=low" class="btn-prio-low">🟢</a>';
+                                } else{
                                     // Show all priority options if no priority is set
                                     echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=high" class="btn-prio-high">🔴</a>';
                                     echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=medium" class="btn-prio-medium">🟠</a>';
@@ -187,7 +172,6 @@ $result = $stmt->get_result();
             </tbody>
         </table>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
