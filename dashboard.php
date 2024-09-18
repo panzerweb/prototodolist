@@ -8,8 +8,17 @@
     $user = mysqli_fetch_assoc($result);
     $user_id = $user['user_id'];
 
+    //Prepare base query
+    $basesqlquery = ("SELECT * FROM task WHERE user_id = ? ORDER BY task_id ASC");
+
+    //Check if there is search query
+    //if $get[search] is set, then sanitize the escape string of $connection and the $get[search]
+    // append the base query with concat assignment (.=) to this mysql code: " AND (task LIKE '%$search%' OR status LIKE '%$search%')";
+
+    //append the base query with a concat assignment (.=) with this mysql code: "ORDER by task_id ASC";
+
     // Prepare the query to retrieve tasks for the current user
-    $stmt = $connection->prepare("SELECT * FROM task WHERE user_id = ? ORDER BY task_id ASC");
+    $stmt = $connection->prepare($basesqlquery);
     $stmt->bind_param("s", $user_id);
     $stmt->execute();
     $result = $stmt->get_result(); 
@@ -101,7 +110,9 @@
                 </button>
             </form>
         </div>
-        
+
+        <!-- Add Search Form with get method -->
+        <!-- the search text input must have a value of a php code that if $get[search] is set, then echo htmlspecialchars the $get[search]-->
         <table class="table">
             <thead>
                 <tr>
@@ -114,6 +125,8 @@
             <tbody>
                 <?php
                     $count = 1;
+                    //Modify the code that if $result->num_rows is greater than 0
+                    //then execute the while loop
                     while ($fetch = $result->fetch_assoc()) {
                 ?>
                 <tr class="border-bottom">
@@ -121,6 +134,7 @@
                         <?php echo $count++ ?>
                     </td>
                     <td>
+                        <!-- Input htmlspecialchars on task and status -->
                         <?php echo $fetch['task'] ?>
                     </td>
                     <td>
@@ -175,6 +189,7 @@
 
                 </tr>
                 <?php
+                    //Implement carefully the else code: echo '<tr><td colspan="4">No Record Found</td></tr>';
                     }
                 ?>
             
