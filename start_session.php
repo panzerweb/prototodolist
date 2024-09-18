@@ -5,5 +5,4 @@ include(__DIR__ . "/config/database.php");
 
 // Retrieve the user_id from the session
 $username = $_SESSION["username"];
-
 ?>
