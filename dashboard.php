@@ -131,17 +131,20 @@
                                 if ($fetch['status'] != "Done") {
                                     echo
                                     '<a href="update_task.php?task_id=' . $fetch['task_id'] . '" 
-                                    class="btn-completed">✅</a>';
+                                    class="btn-completed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+</svg></a>';
                                 }
                             ?>
                             <a href="delete_task.php?task_id=<?php echo $fetch['task_id'] ?>"
-                                    class="btn-remove">❌
+                                    class="btn-remove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+</svg>
                             </a>
                             <a href="undo_task.php?task_id=<?php echo $fetch['task_id'] ?>"
                                     class="btn-undo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
-                                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-skip-backward-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.79-2.907L8.5 7.028V5.5a.5.5 0 0 0-.79-.407L5 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407V8.972l2.71 1.935A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.79-.407"/>
                                     </svg>
                             </a>
 
@@ -155,9 +158,15 @@
                                     echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=low" class="btn-prio-low">🟢</a>';
                                 } else{
                                     // Show all priority options if no priority is set
-                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=high" class="btn-prio-high">🔴</a>';
-                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=medium" class="btn-prio-medium">🟠</a>';
-                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=low" class="btn-prio-low">🟢</a>';
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=high" class="btn-prio-high"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+  <circle cx="8" cy="8" r="8"/>
+</svg></a>';
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=medium" class="btn-prio-medium"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+  <circle cx="8" cy="8" r="8"/>
+</svg></a>';
+                                    echo '<a href="priority_update.php?task_id=' . $fetch['task_id'] . '&priority=low" class="btn-prio-low"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+  <circle cx="8" cy="8" r="8"/>
+</svg></a>';
                                 }
                                 
                             ?>

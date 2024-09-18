@@ -164,23 +164,37 @@ body{
 }
 
 .btn-completed {
-    color: var(--secondary);
+    color: green;
 }
 
 .btn-remove {
     color: var(--accent);
 }
 
+
 .action {
     display: flex;
     justify-content: flex-start;
+}
+
+.action a{
+    margin: 0 0.5rem;
 }
 
 .border-bottom {
     border-bottom: 1px solid var(--accent-second);
 }
 
-
 .btn-prio-high, .btn-prio-medium, .btn-prio-low{
     text-decoration: none !important;
+}
+
+.btn-prio-high{
+    color: red;
+}
+.btn-prio-medium{
+    color: yellow;
+}
+.btn-prio-low{
+    color: green;
 }
