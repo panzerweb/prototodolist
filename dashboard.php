@@ -22,6 +22,18 @@
     $stmt->bind_param("s", $user_id);
     $stmt->execute();
     $result = $stmt->get_result(); 
+
+    //Get the user image
+    $userImage = "";
+    $queryImage = "SELECT filename FROM users_table WHERE user_id = '$user_id'";
+    $imageResult = mysqli_query($connection, $queryImage);
+        if($datafetch = mysqli_fetch_assoc($imageResult)){
+            if (!empty($datafetch['filename'])) {
+                $userImage = './img/' . htmlspecialchars($datafetch['filename']); // User image path
+            } else {
+                $userImage = './img/default-profile.png'; // Default profile image
+            }
+        }
 ?>
 
 <!DOCTYPE html>
@@ -41,11 +53,16 @@
     <!-- Navigational Bar -->
     <nav class="navbar navbar-dark">
         <div class="container-lg">
-            <a href="./dashboard.php" style="text-decoration: none;">
-                <span class="navbar-text">
-                    Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
-                </span>
-            </a>
+            <div class="d-flex align-items-center">
+                <a href="./dashboard.php" class="mx-2">
+                    <img src="<?php echo $userImage; ?>" alt="User Image" class="navbar-image" style="width: 50px; height: 50px; border-radius: 50%;border: 2px solid white;">
+                </a>
+                <a href="./dashboard.php" style="text-decoration: none;">
+                    <span class="navbar-text">
+                        Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+                    </span>
+                </a>
+            </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">

@@ -1,7 +1,73 @@
+/* Style for dashboard.php*/
+/* Google Web Font Helper */
+/* bebas-neue-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/bebas-neue-v14-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+
 *{
-    margin: 0; 
-      padding: 0; 
-      box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+:root{
+    --primary: hsl(352, 82%, 29%);
+    --secondary: hsl(350, 72%, 52%);
+    --tertiary: hsl(352, 82%, 22%);
+    --accent: hsl(345, 84%, 68%);
+    --accent-second: hsl(0, 0%, 7%);
+    --textual: hsl(0, 4%, 85%);
+    --textual-gray: hsl(0, 2%, 45%);
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(283deg, rgba(135,13,29,1) 0%, rgba(18,18,18,1) 25%, rgba(18,18,18,1) 75%, rgba(90,7,18,1) 100%);
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Navbar Styling*/
+.navbar{
+    background-color: var(--primary);
+    color: #f9f9f9 !important;
+    font-family: 'Bebas Neue';
+    letter-spacing: 2px;
+}
+.navbar .navbar-text{
+    color: var(--accent);
+    font-size: 2rem;
+    font-family: 'Bebas Neue';
+    letter-spacing: 2px;
+}
+
+.offcanvas {
+    font-size: 1.3rem;
+    background-color: var(--primary); /* Replace with your desired color */
+}
+
+.offcanvas-body{
+    background-color: var(--accent-second);
+}
+
+.dropdown-menu{
+    background-color: var(--accent);
+    transition: all 0.2s linear;
+}
+.dropdown-menu li a:hover{
+    background-color: var(--accent-second);
+    color: #f9f9f9;
+}
+
+.logout{
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem auto;
+    background-color: var(--secondary);
 }
 
 #content{
@@ -26,4 +92,139 @@ img{
     margin: 5px;
     width: 350px;
     height: 250px;
+}
+
+/* Cards */
+.card{
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+}
+.card-header{
+    background-color: var(--primary);
+    color: var(--textual);
+}
+.card-body{
+    background-color: var(--tertiary);
+}
+.card-body h2{
+    color: var(--textual);
+    font-size: 2.5rem;
+    font-family: 'Bebas Neue';
+    letter-spacing: 2px;
+}
+.card-body h4, p{
+    text-align: left;
+    color: var(--textual);
+    letter-spacing: 2px;
+}
+
+/* Styling the custom file input */
+.btn-formal-file {
+    background-color: #495057; /* Dark gray to match the formal theme */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-formal-file:hover {
+    background-color: #6c757d; /* Lighter on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-formal-file:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+}
+
+/* Styling the Upload button (from earlier) */
+.btn-formal-upload {
+    background-color: #343a40; /* Darker gray for formal look */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
+    transition: all 0.3s ease;
+}
+
+.btn-formal-upload:hover {
+    background-color: #495057;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-formal-upload:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+}
+
+/* Hide the actual file input */
+.form-control-file.d-none {
+    display: none !important;
+}
+
+/* Dialog */
+/* Center the dialog box */
+.styled-dialog {
+    width: 100%; /* Full width to center easily */
+    max-width: 400px; /* Set a max width */
+    border: none; /* Remove default border */
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    background-color: transparent; /* Transparent for styling */
+}
+
+.dialog-content {
+    background-color: #f8f9fa; /* Light background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    border: 1px solid #dee2e6; /* Light gray border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the message text */
+#dialogMessage {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #343a40; /* Dark gray for a professional look */
+}
+
+/* Style the close button */
+#closeDialog {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#closeDialog:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#closeDialog:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Focus ring */
+}
+
+/* Center the dialog on the screen */
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Darken background */
 }
